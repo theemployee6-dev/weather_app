@@ -1,0 +1,2 @@
+C:/Users/Willians Tavares/flutter/weatherbloc1_app/android/app/.cxx/RelWithDebInfo/6p3a1e5l/x86/CMakeFiles/edit_cache.dir
+C:/Users/Willians Tavares/flutter/weatherbloc1_app/android/app/.cxx/RelWithDebInfo/6p3a1e5l/x86/CMakeFiles/rebuild_cache.dir
