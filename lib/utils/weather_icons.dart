@@ -1,19 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:weatherbloc1_app/utils/verify_day_or_night.dart';
 
 class WeatherIcons {
   WeatherIcons._();
 
-  static bool verifyDayorNight() {
-    DateTime now = DateTime.now();
-    String formattedHour = DateFormat('HH').format(now);
-    int hour = int.parse(formattedHour);
-
-    return (hour >= 18 || hour < 6);
-  }
-
   static Widget getWeatherIcon(int code) {
-    bool isNight = verifyDayorNight();
+    bool isNight = VerifyDayOrNight.verifyDayorNight();
     switch (code) {
       case >= 200 && < 233:
         return Image.asset('assets/${isNight ? '11n.png' : '11d.png'}');
