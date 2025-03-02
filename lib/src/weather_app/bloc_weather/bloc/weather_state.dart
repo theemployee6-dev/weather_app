@@ -13,7 +13,7 @@ final class WeatherInitial extends WeatherState {}
 final class WeatherLoading extends WeatherState {}
 
 final class WeatherSuccess extends WeatherState {
-  final WeatherAdapter weatherAdapter;
+  final Box<WeatherAdapter> weatherAdapter;
 
   const WeatherSuccess(this.weatherAdapter);
 

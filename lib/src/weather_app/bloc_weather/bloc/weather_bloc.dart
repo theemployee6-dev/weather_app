@@ -47,7 +47,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       }
 
       // Exibe os dados do Hive
-      emit(WeatherSuccess(weatherBox as WeatherAdapter));
+      emit(WeatherSuccess(weatherBox));
     } catch (e) {
       emit(WeatherFailure(e.toString()));
     }
