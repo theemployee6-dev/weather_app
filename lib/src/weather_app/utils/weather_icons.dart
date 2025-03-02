@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weatherbloc1_app/utils/verify_day_or_night.dart';
+import 'package:weatherbloc1_app/src/weather_app/utils/verify_day_or_night.dart';
 
 class WeatherIcons {
   WeatherIcons._();

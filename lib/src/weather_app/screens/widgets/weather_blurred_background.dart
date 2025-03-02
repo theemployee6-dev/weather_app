@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:weatherbloc1_app/bloc/weather_bloc.dart';
+import 'package:weatherbloc1_app/src/weather_app/bloc_weather/bloc/weather_bloc.dart';
+import 'package:weatherbloc1_app/src/weather_app/data/adapters/weather_adapter.dart';
 
 import 'blurred_background.dart';
 import 'colored_circle.dart';
 import 'weather_all_contents.dart';
 
 class WeatherBlurredBackground extends StatelessWidget {
-  const WeatherBlurredBackground({super.key, required this.position});
+  const WeatherBlurredBackground({super.key, this.weather});
 
-  final Position position;
+  final WeatherAdapter? weather;
 
   @override
   Widget build(BuildContext context) {
@@ -45,14 +46,30 @@ class WeatherBlurredBackground extends StatelessWidget {
               color: Colors.red,
               backgroundColor: Colors.black,
               onRefresh: () async {
-                // Dispara o evento para buscar os dados de clima novamente
-                context.read<WeatherBloc>().add(FetchWeather(position));
+                try {
+                  // Obtém a localização atual
+                  final position = await Geolocator.getCurrentPosition();
+
+                  // Dispara o evento FetchWeather no WeatherBloc
+                  if (context.mounted) {
+                    context.read<WeatherBloc>().add(FetchWeather(position));
+                  }
+                } catch (e) {
+                  // Trata erros de localização
+                  if (context.mounted) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Erro ao obter localização: $e')),
+                    );
+                  }
+                }
               },
               child: SingleChildScrollView(
                 physics: const AlwaysScrollableScrollPhysics(),
                 child: SizedBox(
                   height: size.height,
-                  child: const WeatherAllContents(),
+                  child: WeatherAllContents(
+                    weather: weather!,
+                  ),
                 ),
               ),
             ),
