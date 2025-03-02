@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
 import 'package:weatherbloc1_app/src/weather_app/bloc_weather/bloc/weather_bloc.dart';
+import 'package:weatherbloc1_app/src/weather_app/data/adapters/weather_adapter.dart';
 
 import '../bloc_location/bloc/location_bloc.dart';
 import '../global/loading_progress.dart';
@@ -63,11 +64,13 @@ class _HomeScreenState extends State<HomeScreen> {
         }
         return BlocBuilder<WeatherBloc, WeatherState>(
             builder: (context, weatherState) {
-          final weatherBox = context.read<WeatherBloc>().weatherBox;
+          final Box<WeatherAdapter> weatherBox =
+              context.read<WeatherBloc>().weatherBox;
 
-          final cachedWeatherAdapter = weatherBox.get('cachedWeather');
+          final WeatherAdapter? cachedWeatherAdapter =
+              weatherBox.get('cachedWeather');
 
-          if (cachedWeatherAdapter != null) {
+          if (cachedWeatherAdapter != null || weatherState is WeatherSuccess) {
             // final cachedWeather = cachedWeatherAdapter.toWeather();
             return WeatherBlurredBackground(
               weather: cachedWeatherAdapter,

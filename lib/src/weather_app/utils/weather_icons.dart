@@ -8,29 +8,29 @@ class WeatherIcons {
     bool isNight = VerifyDayOrNight.verifyDayorNight();
     switch (code) {
       case >= 200 && < 233:
-        return Image.asset('assets/${isNight ? '11n.png' : '11d.png'}');
+        return Image.asset('assets/${isNight ? '11n.webp' : '11d.webp'}');
       case >= 300 && < 322:
-        return Image.asset('assets/${isNight ? '09n.png' : '09d.png'}');
+        return Image.asset('assets/${isNight ? '09n.webp' : '09d.webp'}');
       case >= 500 && < 505:
-        return Image.asset('assets/${isNight ? '10n.png' : '10d.png'}');
+        return Image.asset('assets/${isNight ? '10n.webp' : '10d.webp'}');
       case 511:
-        return Image.asset('assets/${isNight ? '13n.png' : '13d.png'}');
+        return Image.asset('assets/${isNight ? '13n.webp' : '13d.webp'}');
       case >= 520 && < 532:
-        return Image.asset('assets/${isNight ? '09n.png' : '09d.png'}');
+        return Image.asset('assets/${isNight ? '09n.webp' : '09d.webp'}');
       case >= 600 && < 623:
-        return Image.asset('assets/${isNight ? '13n.png' : '13d.png'}');
+        return Image.asset('assets/${isNight ? '13n.webp' : '13d.webp'}');
       case >= 701 && < 782:
-        return Image.asset('assets/${isNight ? '50n.png' : '50d.png'}');
+        return Image.asset('assets/${isNight ? '50n.webp' : '50d.webp'}');
       case 800:
-        return Image.asset('assets/${isNight ? '01n.png' : '01d.png'}');
+        return Image.asset('assets/${isNight ? '01n.webp' : '01d.webp'}');
       case 801:
-        return Image.asset('assets/${isNight ? '02n.png' : '02d.png'}');
+        return Image.asset('assets/${isNight ? '02n.webp' : '02d.webp'}');
       case 802:
-        return Image.asset('assets/${isNight ? '03n.png' : '03d.png'}');
+        return Image.asset('assets/${isNight ? '03n.webp' : '03d.webp'}');
       case >= 803 && < 805:
-        return Image.asset('assets/${isNight ? '03n.png' : '03d.png'}');
+        return Image.asset('assets/${isNight ? '03n.webp' : '03d.webp'}');
       default:
-        return Image.asset('assets/01d.png');
+        return Image.asset('assets/01d.webp');
     }
   }
 }

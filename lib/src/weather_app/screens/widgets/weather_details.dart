@@ -22,12 +22,12 @@ class WeatherDetails extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             WeatherInfoCard(
-              iconPath: 'assets/11.png',
+              iconPath: 'assets/11.webp',
               title: 'Sunrise',
               value: sunrise,
             ),
             WeatherInfoCard(
-              iconPath: 'assets/12.png',
+              iconPath: 'assets/12.webp',
               title: 'Sunset',
               value: sunset,
             ),
@@ -41,13 +41,13 @@ class WeatherDetails extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             WeatherInfoCard(
-              iconPath: 'assets/13.png',
+              iconPath: 'assets/13.webp',
               title: 'Temp Max',
               value: tempMax,
               celsius: true,
             ),
             WeatherInfoCard(
-              iconPath: 'assets/14.png',
+              iconPath: 'assets/14.webp',
               title: 'Temp Min',
               value: tempMin,
               celsius: true,
