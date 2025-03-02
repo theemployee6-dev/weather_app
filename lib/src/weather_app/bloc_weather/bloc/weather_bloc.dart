@@ -29,11 +29,12 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
           WeatherFactory(apiKey, language: Language.PORTUGUESE_BRAZIL);
 
       // Busca os dados do clima com base na localização
-      Weather weather = await wf.currentWeatherByLocation(
+      Weather weatherByLocation = await wf.currentWeatherByLocation(
           event.position.latitude, event.position.longitude);
 
       // Converte o Weather para WeatherAdapter
-      final WeatherAdapter weatherAdapter = WeatherAdapter.fromWeather(weather);
+      final WeatherAdapter weatherAdapter =
+          WeatherAdapter.fromWeather(weatherByLocation);
 
       // Verifica se há dados no Hive
       final WeatherAdapter? cachedWeatherAdapter =
